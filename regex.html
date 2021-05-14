@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link
+      rel="stylesheet"
+      href="C:\Users\Chandan\Desktop\html\Simple-Css.css"
+    />
+    <title>Basic input forms</title>
+  </head>
+  <body>
+    <div>
+      <form>
+        <header class="headerContainer">
+          <h1>HTML 5 Input Form</h1>
+        </header>
+      </form>
+    </div>
+    <div>
+      <label for="text">First Name</label>
+      <input type="text" id="text" name="text" />
+      <error-output class="text-error" for="text"></error-output>
+    </div>
+    <script>
+      const text = document.querySelector("#text");
+      const textError = document.querySelector(".text-error");
+      text.addEventListener("input", function () {
+        let firstNameRegex = RegExp("^[A-Z]{1}[a-z]{2,}$");
+        if (firstNameRegex.test(text.value)) textError.textContent = "";
+        else textError.textContent = "First Name is Incorrect";
+      });
+    </script>
+  </body>
+</html>
