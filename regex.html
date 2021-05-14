@@ -24,9 +24,15 @@
     </div>
     <div>
       <label for="email">Email</label>
-      <input type="email" id="email" name="email" />
-      <error-output class="email-error" for="email"></error-output>
-    </div>
+    <input type="email" id="email" name="email" />
+    <error-output class="email-error" for="email"></error-output>
+
+  </div>
+  <div>
+    <label for="mobNumber">Mobile Number</label>
+    <input type="mobNumber" id="mobNumber" name="mobNumber"/>
+    <error-output class="text-error" for"text"></error-output>
+</div>
     <script>
       const text = document.querySelector("#text");
       const textError = document.querySelector(".text-error");
@@ -41,8 +47,17 @@
             let emailRegex = RegExp("^[a-zA-Z0-9.!#$%&'+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)$/");
             if (emailRegex.test(email.value))
             emailError.textContent = "";
-            else textError.textContent = "please enter valid Email format";
+            else Error.textContent = "please enter valid Email format";
+
+            const mobileNumber = document.querySelector("#mobileNumber");
+        const mobileNumberError = document.querySelector(".mobileNumber-error");
+        mobileNumber.addEventListener('Input',function() {
+            let mobileNumberRegex = RegExp("^((\\+)?(\\d{2}[-]))?(\\d{10}){1}?$");
+            if (mobileNumberRegex.test(mobileNumber.value))
+            mobileNumberError.textContent = "";
+            else mobileNumberError.textContent = "please enter valid phoneNumber";
       });
     </script>
   </body>
 </html>
+  
