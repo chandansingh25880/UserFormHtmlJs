@@ -33,6 +33,11 @@
     <input type="mobNumber" id="mobNumber" name="mobNumber"/>
     <error-output class="text-error" for"text"></error-output>
 </div>
+<div>
+  <label for="pwd">password</label>
+  <input type="pwd" id="pwd" name="pwd"/>
+  <error-output class="text-error" for"text"></error-output>
+</div>
     <script>
       const text = document.querySelector("#text");
       const textError = document.querySelector(".text-error");
@@ -56,6 +61,14 @@
             if (mobileNumberRegex.test(mobileNumber.value))
             mobileNumberError.textContent = "";
             else mobileNumberError.textContent = "please enter valid phoneNumber";
+
+            const password = document.querySelector("#password")
+        const passwordError = document.querySelector(".password-error");
+        password.addEventListener("Input",function() {
+            let passwordRegex = RegExp("^(?=.[a-z])(?=.[A-Z])(?=.\d)(?=.[@$!%?&])[A-Za-z\d@$!%?&]{8,}$");
+            if(passwordRegex.test(password.value))
+            passwordError.textContent = "";
+            else passwordError.textContent = "please enter valid password";
       });
     </script>
   </body>
